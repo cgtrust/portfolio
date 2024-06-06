@@ -1,0 +1,1 @@
+export const restBase = 'https://cgtwebdesigns.com/hadkowpnk/wp-json/wp/v2'
