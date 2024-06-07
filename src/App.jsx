@@ -1,5 +1,8 @@
-import { Route, Routes, NavLink } from 'react-router-dom'
+import { Route, Routes, NavLink, Router } from 'react-router-dom'
 import Home from './components/Home'
+import Projects from './components/Projects'
+// import About from './components/About'
+import Single from './components/Single'
 import './App.css'
 
 function App() {
@@ -9,13 +12,17 @@ function App() {
       <header>
         <nav>
           <ul>
-            <li><NavLink to ='/' end>Home</NavLink></li>
+            <NavLink to='/' end>Home</NavLink>
+            <NavLink to='/projects' end>Projects</NavLink>
+            <NavLink to='/about' end>About</NavLink>
           </ul>
         </nav>
       </header>
       <main>
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/projects' element={<Projects />} />
+          <Route path='/projects/:slug' element={<Single />} />
         </Routes>
       </main>
     </>

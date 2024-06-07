@@ -3,7 +3,7 @@ import Loading from '../utilities/Loading'
 import { restBase } from '../utilities/Utilities';
 
 const Home = () => {
-    const restPath = restBase + ''
+    const restPath = restBase + '/pages/12'
     const [restData, setData] = useState([])
     const [isLoaded, setLoadStatus] = useState(false)
 
@@ -27,7 +27,10 @@ const Home = () => {
             <article id={`post-${restData.id}`}>
                 <h1>{restData.title.rendered}</h1>
                 <div className="entry-content">
-
+                    <section>
+                        <h2>{restData.acf.cgt_portfolio_name}</h2>
+                        <p>{restData.acf.cgt_portoflio_job_title}</p>
+                    </section>
                 </div>
             </article>
             :
