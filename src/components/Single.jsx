@@ -56,7 +56,7 @@ const Single = () => {
                 <article id={`post-${restData.id}`}>
                     <h1>{restData.title.rendered}</h1>
                     {/* Video is showing on inspector, but you can't see anything */}
-                    <video src={restData.acf.cgt_portfolio_featured_project} type="video/mp4"></video>
+                    <video src={restData.acf.cgt_portfolio_featured_project} type="video/mp4" autoPlay muted></video>
                     <p>{restData.acf.cgt_portfolio_project_overview}</p>
                     <div>
                         <TabsComponent 
