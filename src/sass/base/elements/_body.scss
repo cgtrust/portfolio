@@ -1,0 +1,9 @@
+body {
+    background-color: $color-background-body;
+    font-family: $font-body;
+    color: $color-text-main;
+    font-size: 1rem;
+    line-height: $font-line-height-body;
+}
+
+@import "headings";

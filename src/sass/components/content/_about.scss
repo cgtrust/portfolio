@@ -1,0 +1,42 @@
+section {
+    border: 1px solid $color-border;
+    margin: 1rem auto;
+    width: 85%;
+    .about-heading {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: .5rem;
+    }
+    .about-logo {
+        position: relative;
+        .about-logo-background, .about-logo-cat {
+            position: absolute;
+            object-fit: cover;
+        }
+        .about-logo-background {
+            width: 7.25rem;
+            border-radius: 70%;
+            top: 0;
+            left: 0;
+        }
+        
+        .about-logo-cat {
+            width: 6.25rem;
+            padding: .35rem 0 0 .35rem;
+        }
+    }
+    h1 {
+        font-size: 1rem;
+    }
+    .icon-gallery {
+        display: flex;
+        flex-direction: row;
+        img {
+            width: 1.125rem;
+            margin: .25rem;
+        }
+    }
+}
+
+
