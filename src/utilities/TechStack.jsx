@@ -3,16 +3,15 @@ import StackIcon from "tech-stack-icons";
 
 const TechStack = ({ technologies }) => {
     return (
-        <div>
+        <div className="tech-stack">
             {technologies.map((tech, index) => (
-                typeof tech === 'object' && tech.value ? (
-                    <StackIcon key={index} name={tech.value} />
-                ) : (
-                    <div key={index}>Invalid technology: {JSON.stringify(tech)}</div>
-                )
+                <div key={index}>
+                    <StackIcon name={tech.value} />
+                    <span>{tech.label}</span>
+                </div>
             ))}
         </div>
     );
-}
+};
 
 export default TechStack;

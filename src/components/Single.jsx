@@ -3,18 +3,13 @@ import { useParams, Link } from 'react-router-dom'
 import Loading from '../utilities/Loading'
 import { restBase } from '../utilities/Utilities'
 import TabsComponent from '../utilities/Tabs'
+import TechStack from '../utilities/TechStack'
 
 const Single = () => {
     const {slug} = useParams()
-    const restPath = restBase + `/posts?slug=${slug}&_embed`
+    const restPath = restBase + `/posts?slug=${slug}&_embed&acf_format=standard`
     const [restData, setData] = useState([])
     const [isLoaded, setLoadStatus] = useState(false)
-    const [prevPost, setPrevPost] = useState(null)
-    const [nextPost, setNextPost] = useState(null)
-
-    console.log('restData:', restData);
-
-
 
     useEffect(() => {
         const fetchData = async () => {
@@ -31,49 +26,42 @@ const Single = () => {
         fetchData()
     }, [restPath])
 
-    const fetchAdjacentPosts = async (post) => {
-        try {
-            const currentDate = new Date(post.date)
-            const prevPostResponse = await fetch(`${restBase}/posts?_embed&per_page=1&before=${currentDate.toISOString()}&order=desc`)
-            const nextPostResponse = await fetch(`${restBase}/posts?_embed&per_page=1&after=${currentDate.toISOString()}&order=asc`)
-            if (prevPostResponse.ok) {
-                const prevPostData = await prevPostResponse.json()
-                setPrevPost(prevPostData[0])
-            }
-            if (nextPostResponse.ok) {
-                const nextPostData = await nextPostResponse.json()
-                setNextPost(nextPostData[0])
-            }
-        } catch (error) {
-            console.error('Error fetching adjacent posts:', error)
-        }
-    }
-
     return (
         <>
         { isLoaded ?
             <>
                 <article id={`post-${restData.id}`}>
                     <h1>{restData.title.rendered}</h1>
-                    {/* Video is showing on inspector, but you can't see anything */}
-                    <video src={restData.acf.cgt_portfolio_featured_project} type="video/mp4" autoPlay muted></video>
-                    <p>{restData.acf.cgt_portfolio_project_overview}</p>
+                    {restData.acf.cgt_portfolio_featured_project && typeof restData.acf.cgt_portfolio_featured_project === 'string' && (
+                            <video src={restData.acf.cgt_portfolio_featured_project} type="video/mp4"></video>
+                        )}
+                    {restData.acf.cgt_portfolio_project_overview && (
+                        <p dangerouslySetInnerHTML={{ __html: restData.acf.cgt_portfolio_project_overview }} />
+                    )}
+                    {restData.acf.tech_stack && Array.isArray(restData.acf.tech_stack) && restData.acf.tech_stack[0] && (
+                        <div>
+                            <h2>Tech Stack:</h2>
+                            <TechStack technologies={restData.acf.tech_stack[0].tech_stack} />
+                        </div>
+                    )}
                     <div>
                         <TabsComponent 
                             requirements={restData.acf.cgt_portfolio_project_requirements}
-                            reflection={restData.acf.cgt_portfolio_reflection}  
+                            reflection={restData.acf.cgt_portfolio_reflection && (
+                                <div className="reflection" dangerouslySetInnerHTML={{__html: restData.acf.cgt_portfolio_reflection}} />
+                            )}  
                         />
                     </div>
                 </article>
-                {/* Below is currently not showing up */}
+                
                 <nav className="posts-navigation">
-                    {prevPost &&
-                        <Link to={`/projects/${prevPost.slug}`} className="prev-post">Previous: {prevPost.title?.rendered}</Link>
-                    }
-                    {nextPost &&
-                        <Link to={`/projects/${nextPost.slug}`} className="next-post">Next: {nextPost.title?.rendered}</Link>
-                    }
-                </nav>
+                        {restData.previous_post &&
+                            <Link to={`/projects/${restData.previous_post.slug}`} className="prev-post">Previous: {restData.previous_post.title}</Link>
+                        }
+                        {restData.next_post &&
+                            <Link to={`/projects/${restData.next_post.slug}`} className="next-post">Next: {restData.next_post.title}</Link>
+                        }
+                    </nav>
             </>
         : 
             <Loading />

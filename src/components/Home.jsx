@@ -24,15 +24,10 @@ const Home = () => {
     return (
         <>
         { isLoaded ? 
-            <article id={`post-${restData.id}`}>
-                <h1>{restData.title.rendered}</h1>
-                <div className="entry-content">
-                    <section>
-                        <h2>{restData.acf.cgt_portfolio_name}</h2>
+            <section id={`post-${restData.id}`}>
+                <h1>{restData.acf.cgt_portfolio_name}</h1>
                         <p>{restData.acf.cgt_portoflio_job_title}</p>
-                    </section>
-                </div>
-            </article>
+            </section>
             :
             <Loading />
         }

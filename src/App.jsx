@@ -1,7 +1,7 @@
 import { Route, Routes, NavLink, Router } from 'react-router-dom'
 import Home from './components/Home'
 import Projects from './components/Projects'
-// import About from './components/About'
+import About from './components/About'
 import Single from './components/Single'
 import './App.css'
 
@@ -23,6 +23,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/projects' element={<Projects />} />
           <Route path='/projects/:slug' element={<Single />} />
+          <Route path='/about' element={<About />} />
         </Routes>
       </main>
     </>

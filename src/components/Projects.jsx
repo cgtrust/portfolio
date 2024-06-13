@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom'
 import Loading from '../utilities/Loading'
 import { restBase } from '../utilities/Utilities';
 import TechStack from '../utilities/TechStack';
-import StackIcon from 'tech-stack-icons';
 
-const Projects = () => {
+const Projects = ({ post }) => {
     const restPath = restBase + '/posts?_embed&acf_format=standard'
     const [restData, setData] = useState([])
     const [isLoaded, setLoadStatus] = useState(false)
@@ -29,7 +28,7 @@ const Projects = () => {
         { isLoaded ?
             <>
                 <h1>Projects</h1>
-                {restData.map(post => 
+                {restData.map(post => (
                     <article key={post.id} id={`post-${post.id}`}>
                         <h2>{post.title.rendered}</h2>
                         {post.acf.cgt_portfolio_featured_project && typeof post.acf.cgt_portfolio_featured_project === 'string' && (
@@ -41,10 +40,13 @@ const Projects = () => {
                                 <h3>Tech Stack:</h3>
                                 <TechStack technologies={post.acf.tech_stack[0].tech_stack} />
                             </div>
-                        )}              
+                        )}           
+                        {post.acf && post.acf.cgt_portfolio_project_overview && (
+                            <div dangerouslySetInnerHTML={{ __html: post.acf.cgt_portfolio_project_overview }} />
+                        )}
                         <Link to={`/projects/${post.slug}`}>More Info</Link>
                     </article>
-                )}
+                ))}
             </>
         : 
             <Loading />
