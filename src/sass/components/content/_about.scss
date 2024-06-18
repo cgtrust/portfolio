@@ -1,12 +1,16 @@
-section {
-    border: 1px solid $color-border;
-    margin: 1rem auto;
-    width: 85%;
+@import "../../abstracts/mixins/mixins";
+
+#post-36 section {
     .about-heading {
         display: flex;
-        flex-wrap: wrap;
         justify-content: space-between;
         margin: .5rem;
+        @include mediaQuery(50em) {
+            margin: 1rem;
+        }
+    }
+    h1, h2 {
+        margin: 0 0 1rem 0;
     }
     .about-logo {
         position: relative;
@@ -19,15 +23,18 @@ section {
             border-radius: 70%;
             top: 0;
             left: 0;
+            @include mediaQuery(50em) {
+                width: 13rem;
+            }
         }
         
         .about-logo-cat {
             width: 6.25rem;
             padding: .35rem 0 0 .35rem;
+            @include mediaQuery(50em) {
+                width: 12rem;
+            }
         }
-    }
-    h1 {
-        font-size: 1rem;
     }
     .icon-gallery {
         display: flex;
@@ -35,6 +42,9 @@ section {
         img {
             width: 1.125rem;
             margin: .25rem;
+            @include mediaQuery(50em) {
+                width: 2rem;
+            }
         }
     }
 }
