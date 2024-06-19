@@ -1,0 +1,35 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    img {
+        width: 3rem;
+        margin: 1rem;
+    }
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+    .nav-links {
+        display: none;
+        list-style: none;
+        flex-direction: column;
+        gap: 0.5rem;
+        position: absolute;
+        top: 3.75rem;
+        right: 0;
+        background-color: $color-background-body;
+        padding: 0;
+        width: 100%;
+        border: 1px solid $color-border;
+        &.open {
+            display: flex;  
+            li {
+                padding: 1rem;
+                border-bottom: 1px solid $color-border;
+                &:nth-child(3) {
+                    border-bottom: none;
+                }
+            }      
+        }
+    }
+}

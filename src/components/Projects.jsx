@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import Loading from '../utilities/Loading'
 import { restBase } from '../utilities/Utilities';
 import TechStack from '../utilities/TechStack';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Projects = () => {
     const restPath = restBase + '/posts?_embed&acf_format=standard'
@@ -10,6 +12,8 @@ const Projects = () => {
     const [isLoaded, setLoadStatus] = useState(false)
 
     useEffect(() => {
+        AOS.init();
+        AOS.refresh();
         const fetchData = async () => {
             const response = await fetch(restPath)
             if ( response.ok ) {
@@ -28,7 +32,11 @@ const Projects = () => {
         { isLoaded ?
             <>
                 {restData.map(post => (
-                    <section key={post.id} id={`post-${post.id}`} className="projects-section" >
+                    <section key={post.id} id={`post-${post.id}`} 
+                             className="projects-section" 
+                             data-aos="slide-up" 
+                             data-aos-delay={(post * 100).toString()} 
+                    >
                         <div className="projects-heading">
                             <h1>{post.title.rendered}</h1>
                             {post.acf.cgt_portfolio_featured_project && typeof post.acf.cgt_portfolio_featured_project === 'string' && (

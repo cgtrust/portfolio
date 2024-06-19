@@ -3,6 +3,8 @@ import Loading from '../utilities/Loading'
 import { restBase } from '../utilities/Utilities';
 import TechStack from '../utilities/TechStack';
 import pastelRainbowImage from '../assets/pastel-rainbow.png';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const About = () => {
     const restPath = restBase + '/pages/36?acf_format=standard&_embed'
@@ -10,6 +12,8 @@ const About = () => {
     const [isLoaded, setLoadStatus] = useState(false)
 
     useEffect(() => {
+        AOS.init();
+        AOS.refresh();
         const fetchData = async () => {
             const response = await fetch(restPath)
             if ( response.ok ) {
@@ -26,7 +30,7 @@ const About = () => {
     return (
         <>
         { isLoaded ? 
-            <article id={`post-${restData.id}`}>
+            <article id={`post-${restData.id}`} className="top">
                 <section>  
                     <div className="about-heading">
                         <div className="about-logo">
@@ -59,14 +63,21 @@ const About = () => {
                         </div> 
                     </div>
                     {restData.acf && restData.acf.cgt_portfolio_about_text && (
-                            <div dangerouslySetInnerHTML={{ __html: restData.acf.cgt_portfolio_about_text }} />
-                        )}
+                        restData.acf.cgt_portfolio_about_text.split('</p>').map((paragraph, index) => (
+                            paragraph && <div 
+                                key={index} 
+                                dangerouslySetInnerHTML={{ __html: paragraph + '</p>' }} 
+                                data-aos="slide-up" 
+                                data-aos-delay={index * 100}  // Add a delay for each paragraph
+                            />
+                        ))
+                    )}
                 </section>
                 <section className="stacks">
                 {restData.acf.tech_stack && Array.isArray(restData.acf.tech_stack) && restData.acf.tech_stack[0] && (
                         <div>
                             <h2>Tech Stack</h2>
-                            <div className="stack-flex">
+                            <div className="stack-flex" >
                                 <TechStack technologies={restData.acf.tech_stack[0].tech_stack} />
                             </div>
                         </div>
@@ -76,7 +87,7 @@ const About = () => {
                 {restData.acf.design_stack && Array.isArray(restData.acf.design_stack) && restData.acf.design_stack[0] && (
                         <div>
                             <h2>Design Stack</h2>
-                            <div className="stack-flex">
+                            <div className="stack-flex" >
                                 <TechStack technologies={restData.acf.design_stack[0].design_stack} />
                             </div>
                         </div>

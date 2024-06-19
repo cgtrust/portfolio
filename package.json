@@ -10,10 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "-": "^0.0.1",
+    "aos": "^2.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1",
     "react-tabs": "^6.0.2",
+    "save": "^2.9.0",
     "tech-stack-icons": "^2.0.3"
   },
   "devDependencies": {

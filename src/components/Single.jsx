@@ -29,7 +29,7 @@ const Single = () => {
         <>
         { isLoaded ?
             <>
-                <article id={`post-${restData.id}`}>
+                <article id={`post-${restData.id}`} className="top">
                     <h1>{restData.title.rendered}</h1>
                     {restData.acf.cgt_portfolio_featured_project && typeof restData.acf.cgt_portfolio_featured_project === 'string' && (
                         <div className="video-container">
@@ -40,15 +40,17 @@ const Single = () => {
                         <Link to={restData.acf.cgt_portfolio_git_repo_link} className="more-info-link">Git Repo</Link>
                         <Link to={restData.acf.cgt_portfolio_live_site_link} className="more-info-link">Live Site</Link>
                     </div>
-                    {restData.acf.cgt_portfolio_project_overview && (
-                        <p dangerouslySetInnerHTML={{ __html: restData.acf.cgt_portfolio_project_overview }} className="project-overview" />
-                    )}
-                    {restData.acf.tech_stack && Array.isArray(restData.acf.tech_stack) && restData.acf.tech_stack[0] && (
-                        <div className="stack-flex">
-                            {/* <h2>Tech Stack:</h2> */}
-                            <TechStack technologies={restData.acf.tech_stack[0].tech_stack} />
-                        </div>
-                    )}
+                    <div className="project-overview">
+                        {restData.acf.cgt_portfolio_project_overview && (
+                            <p dangerouslySetInnerHTML={{ __html: restData.acf.cgt_portfolio_project_overview }} />
+                        )}
+                        {restData.acf.tech_stack && Array.isArray(restData.acf.tech_stack) && restData.acf.tech_stack[0] && (
+                            <div className="stack-flex">
+                                {/* <h2>Tech Stack:</h2> */}
+                                <TechStack technologies={restData.acf.tech_stack[0].tech_stack} />
+                            </div>
+                        )}
+                    </div>
                     <div>
                         <TabsComponent 
                             requirements={restData.acf.cgt_portfolio_project_requirements}
