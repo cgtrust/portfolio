@@ -53,7 +53,7 @@ const Single = () => {
                         <TabsComponent 
                             requirements={restData.acf.cgt_portfolio_project_requirements}
                             reflection={restData.acf.cgt_portfolio_reflection && (
-                                <div dangerouslySetInnerHTML={{__html: restData.acf.cgt_portfolio_reflection}} />
+                                <p dangerouslySetInnerHTML={{__html: restData.acf.cgt_portfolio_reflection}} />
                             )}
                         />
                     </div>

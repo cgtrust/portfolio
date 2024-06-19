@@ -49,7 +49,7 @@ const About = () => {
                                     {restData.acf.cgt_portfolio_about_icons.map((iconItem, index) => (
                                         <img 
                                             key={index}
-                                            src={iconItem.icons.url}  // Assuming 'icons' is the sub-field containing URL and alt
+                                            src={iconItem.icons.url}
                                             alt={iconItem.icons.alt || `Icon ${index + 1}`}
                                             className="gallery-icons"
                                         />

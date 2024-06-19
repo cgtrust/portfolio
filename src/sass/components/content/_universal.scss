@@ -17,8 +17,11 @@ main {
 
 .stack-flex .tech-stack {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: .5rem;
+    @include mediaQuery(50em) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
     div {
         display: flex;
         align-items: center;
@@ -91,6 +94,6 @@ main {
     .button-container {
         display: flex;
         justify-content: flex-end;
-        margin: 0 .25rem 1rem 0;
+        margin: 0 .5rem 1rem 0;
     }
 }

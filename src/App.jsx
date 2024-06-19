@@ -1,4 +1,4 @@
-import { Route, Routes, NavLink, Router } from 'react-router-dom'
+import { Route, Routes, NavLink } from 'react-router-dom'
 import Home from './components/Home'
 import Projects from './components/Projects'
 import About from './components/About'
@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <header>
-        <nav>
+        <nav className="main-nav">
           <ul>
             <NavLink to='/' end>Home</NavLink>
             <NavLink to='/projects' end>Projects</NavLink>
