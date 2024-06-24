@@ -40,7 +40,7 @@ const Projects = () => {
                         <div className="projects-heading">
                             <h1>{post.title.rendered}</h1>
                             {post.acf.cgt_portfolio_featured_project && typeof post.acf.cgt_portfolio_featured_project === 'string' && (
-                                <video src={post.acf.cgt_portfolio_featured_project} type="video/mp4"></video>
+                                <video autoPlay muted src={post.acf.cgt_portfolio_featured_project} type="video/mp4"></video>
                             )}
                         </div>
                         {post.acf && post.acf.cgt_portfolio_project_overview && (
@@ -55,8 +55,8 @@ const Projects = () => {
                                 </div>
                             </div>
                         )}   
-                        <div className="button-container">
-                            <Link to={`/projects/${post.slug}`} className="more-info-link">More Info</Link>
+                        <div className="button-container single-links">
+                            <Link to={`/projects/${post.slug}`} >More Info</Link>
                         </div>        
                     </section>
                 ))}

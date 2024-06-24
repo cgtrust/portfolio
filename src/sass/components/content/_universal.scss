@@ -1,9 +1,6 @@
 main {
-    max-width: 80%;
+    max-width: 90%;
     margin: 0 auto;
-    @media screen and (max-width: 50em) {
-        max-width: 43.75rem;
-    }
     h1, h2 {
         text-align: center;
     }
@@ -35,6 +32,7 @@ main {
 .project-overview,
 .react-tabs {
     border: 1px solid $color-border;
+    box-shadow: 0px 0px 5px 5px rgb(25, 25, 25);
 }
 
 #post-36 section,
@@ -46,9 +44,8 @@ main {
 #post-44,
 #post-42 {
     margin: 10rem auto;
-    width: 90%;
     @include mediaQuery(50em) {
-        width: 66%;
+        width: 40rem;
     }
 }
 
@@ -80,25 +77,19 @@ main {
     }
 }
 
-#post-36 section,
-.projects-section,
-#post-48,
-#post-46,
-#post-44,
-#post-42 {
-    .more-info-link {
-        background-color: $color-link;
-        color: $color-background-body;
-        padding: .25rem .5rem;
-        border-radius: 1rem;
-        display: inline-block;        
-    }
-    
-    .button-container {
-        display: flex;
-        justify-content: flex-end;
-        margin: 0 .5rem 1rem 0;
-    }
+.single-links a, .posts-navigation a {
+    background-color: $color-link;
+    color: $color-background-body;
+    box-shadow: 0px 0px 5px 5px rgb(25, 25, 25);
+    padding: .25rem .5rem;
+    border-radius: 1rem;
+    display: inline-block;        
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 .5rem 1rem 0;
 }
 
 .top,
@@ -106,6 +97,7 @@ main {
 #post-48,
 #post-46,
 #post-44,
-#post-42 {
+#post-42,
+#post-12 {
     margin-top: 20rem;
 }

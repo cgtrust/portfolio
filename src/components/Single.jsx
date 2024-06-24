@@ -33,12 +33,12 @@ const Single = () => {
                     <h1>{restData.title.rendered}</h1>
                     {restData.acf.cgt_portfolio_featured_project && typeof restData.acf.cgt_portfolio_featured_project === 'string' && (
                         <div className="video-container">
-                            <video src={restData.acf.cgt_portfolio_featured_project} type="video/mp4"></video>
+                            <video autoPlay muted src={restData.acf.cgt_portfolio_featured_project} type="video/mp4"></video>
                         </div>
                     )}
                     <div className="single-links button-container">
-                        <Link to={restData.acf.cgt_portfolio_git_repo_link} className="more-info-link">Git Repo</Link>
-                        <Link to={restData.acf.cgt_portfolio_live_site_link} className="more-info-link">Live Site</Link>
+                        <Link to={restData.acf.cgt_portfolio_git_repo_link} >Git Repo</Link>
+                        <Link to={restData.acf.cgt_portfolio_live_site_link} >Live Site</Link>
                     </div>
                     <div className="project-overview">
                         {restData.acf.cgt_portfolio_project_overview && (

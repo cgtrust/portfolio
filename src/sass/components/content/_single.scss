@@ -13,3 +13,46 @@
         margin-left: .5rem;
     }
 }
+
+@include mediaQuery(50em) {
+    .react-tabs {
+        height: 40rem;
+        p, ul {
+            padding-top: .5rem;
+        }
+    }
+}
+
+.react-tabs__tab-list {
+    border-bottom: 1px solid $color-border;
+    margin: 0 0 10px;
+    padding: 0;
+    display: flex;
+}
+
+.react-tabs__tab--selected {
+    background: $color-text-main;
+    border-color: $color-border;
+    color: $color-background-body;
+    border-radius: 5px 5px 0 0;
+}
+
+.react-tabs__tab {
+    flex: 1;
+    text-align: center;
+    display: inline-block;
+    border: 1px solid transparent;
+    border-bottom: none;
+    bottom: -1px;
+    position: relative;
+    list-style: none;
+    padding: .375rem 0;
+    cursor: pointer;
+}
+
+.posts-navigation {
+    display: flex;
+    justify-content: space-between;
+    max-width: 40rem;
+    margin: 2rem auto;
+}

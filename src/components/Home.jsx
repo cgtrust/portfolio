@@ -26,7 +26,7 @@ const Home = () => {
         { isLoaded ? 
             <section id={`post-${restData.id}`}>
                 <h1>{restData.acf.cgt_portfolio_name}</h1>
-                        <p>{restData.acf.cgt_portoflio_job_title}</p>
+                        <p className="animated">{restData.acf.cgt_portoflio_job_title}</p>
             </section>
             :
             <Loading />

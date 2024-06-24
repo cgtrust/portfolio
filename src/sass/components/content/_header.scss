@@ -1,9 +1,14 @@
-header {
+.header-wrapper {
     display: flex;
     justify-content: space-between;
+    max-width: 60rem;
+    margin: 0 auto;
     img {
         width: 3rem;
         margin: 1rem;
+        @include mediaQuery(50em) {
+            width: 5rem;
+        }
     }
     .hamburger {
         display: block;
