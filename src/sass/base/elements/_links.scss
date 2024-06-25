@@ -12,10 +12,6 @@ a {
         text-decoration: underline;
     }
 
-    &:focus {
-        outline: thin dotted;
-    }
-
     &:hover,
     &:active {
         outline: 0;

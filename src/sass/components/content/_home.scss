@@ -1,4 +1,10 @@
+$background-image: url('../../../assets/trumpets.svg');
+
 #post-12 {
+    background-image: $background-image;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     h1, p {
         text-align: center;
     }

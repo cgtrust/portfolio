@@ -1,10 +1,12 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
 import logo from '../assets/lyre-logo.svg'
 import hamburgerIcon from '../assets/hamburger-menu.svg'
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false)
+    const menuRef = useRef(null);
+    const hamburgerRef = useRef(null);
     
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -13,6 +15,19 @@ const Header = () => {
     const closeMenu = () => {
         setIsOpen(false);
     }
+
+    const handleKeyDown = (e) => {
+        if (e.key === 'Escape') {
+            closeMenu();
+            hamburgerRef.current.focus();
+        }
+    };
+
+    useEffect(() => {
+        if (isOpen) {
+            menuRef.current?.querySelector('a')?.focus();
+        }
+    }, [isOpen]);
 
     return (
         <header>
@@ -23,10 +38,25 @@ const Header = () => {
                     </NavLink>
                 </div>
                 <nav className="main-nav">
-                    <div className ="hamburger" onClick={toggleMenu} >
+                    <div
+                        className="hamburger"
+                        onClick={toggleMenu}
+                        tabIndex="0"
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                                toggleMenu();
+                            }
+                        }}
+                        ref={hamburgerRef}
+                        aria-label="Menu"
+                    >
                         <img src={hamburgerIcon} alt="Menu" />
                     </div>
-                    <ul className={isOpen ? 'nav-links open' : 'nav-links'} >
+                    <ul
+                        className={isOpen ? 'nav-links open' : 'nav-links'}
+                        ref={menuRef}
+                        onKeyDown={handleKeyDown}
+                    >
                         <li>
                             <NavLink to='/' end onClick={closeMenu} >Home</NavLink>
                         </li>

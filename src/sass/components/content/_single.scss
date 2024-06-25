@@ -48,6 +48,9 @@
     list-style: none;
     padding: .375rem 0;
     cursor: pointer;
+    &:focus, &:hover {
+        text-decoration: underline;
+    }
 }
 
 .posts-navigation {

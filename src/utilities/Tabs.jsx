@@ -5,8 +5,8 @@ const TabsComponent = ({ requirements, reflection }) => {
     return (
         <Tabs>
             <TabList>
-                <Tab>Requirements</Tab>
-                <Tab>Reflection</Tab>
+                <Tab tabIndex="0">Requirements</Tab>
+                <Tab tabIndex="0">Reflection</Tab>
             </TabList>
 
             <TabPanel>

@@ -16,6 +16,8 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: .5rem;
+    justify-content: center;
+    margin: .5rem;
     @include mediaQuery(50em) {
         grid-template-columns: 1fr 1fr 1fr;
     }
@@ -24,6 +26,7 @@ main {
         align-items: center;
         background-color: rgb(25, 25, 25);
         border-radius: .5rem;
+        box-shadow: 0px 0px 3px 2px black;
     }
 }
 
@@ -32,7 +35,6 @@ main {
 .project-overview,
 .react-tabs {
     border: 1px solid $color-border;
-    box-shadow: 0px 0px 5px 5px rgb(25, 25, 25);
 }
 
 #post-36 section,
@@ -77,10 +79,18 @@ main {
     }
 }
 
+.single-links a, 
+.posts-navigation a,
+#post-36 section,
+.projects-section,
+.project-overview,
+.react-tabs {
+    box-shadow: 0px 0px 5px 5px black;
+}
+
 .single-links a, .posts-navigation a {
     background-color: $color-link;
     color: $color-background-body;
-    box-shadow: 0px 0px 5px 5px rgb(25, 25, 25);
     padding: .25rem .5rem;
     border-radius: 1rem;
     display: inline-block;        

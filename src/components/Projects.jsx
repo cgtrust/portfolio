@@ -40,7 +40,7 @@ const Projects = () => {
                         <div className="projects-heading">
                             <h1>{post.title.rendered}</h1>
                             {post.acf.cgt_portfolio_featured_project && typeof post.acf.cgt_portfolio_featured_project === 'string' && (
-                                <video autoPlay muted src={post.acf.cgt_portfolio_featured_project} type="video/mp4"></video>
+                                <video autoPlay loop muted src={post.acf.cgt_portfolio_featured_project} type="video/mp4"></video>
                             )}
                         </div>
                         {post.acf && post.acf.cgt_portfolio_project_overview && (
