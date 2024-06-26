@@ -1,4 +1,5 @@
-@use "../../abstracts/mixins/mixins" as *;
+@use 'vars' as *;
+@use 'mixins' as *;
 
 #post-36 section {
     .about-heading {

@@ -1,3 +1,5 @@
+@use "vars" as *;
+
 body {
     background-color: $color-background-body;
     font-family: $font-body;
@@ -5,8 +7,6 @@ body {
     font-size: 1rem;
     line-height: $font-line-height-body;
 }
-
-@import "headings";
 
 // $background-image: url('../../../assets/trumpets.svg');
 
