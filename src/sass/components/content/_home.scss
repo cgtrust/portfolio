@@ -1,10 +1,10 @@
-$background-image: url('../../../assets/trumpets.svg');
+// @import url('../assets/trumpets.svg');
 
 #post-12 {
-    background-image: $background-image;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    // background: url('../assets/trumpets.svg') no-repeat;
+    // background-size: cover;
+    // background-position: center;
+    // background-repeat: no-repeat;
     h1, p {
         text-align: center;
     }
@@ -12,7 +12,7 @@ $background-image: url('../../../assets/trumpets.svg');
         display: inline-block;
         overflow: hidden;
         white-space: nowrap;
-        animation: typing 1.5s steps(30, end) forwards;
+        animation: typing 3s steps(30, end) forwards;
     }
     @keyframes typing {
         from { width: 0 }

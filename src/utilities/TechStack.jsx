@@ -5,7 +5,7 @@ const TechStack = ({ technologies }) => {
     return (
         <div className="tech-stack">
             {technologies.map((tech, index) => (
-                <div key={index}>
+                <div id={tech.label} key={index}>
                     <StackIcon name={tech.value} />
                     <span>{tech.label}</span>
                 </div>

@@ -1,4 +1,4 @@
-@import "../../abstracts/mixins/mixins";
+@use "../../abstracts/mixins/mixins" as *;
 
 #post-36 section {
     .about-heading {
