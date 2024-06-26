@@ -37,7 +37,10 @@ main {
 .projects-section,
 .project-overview,
 .react-tabs {
+    background-color: $color-background-body;
     border: 1px solid $color-border;
+    position: relative;
+    z-index: 1;
 }
 
 #post-36 section,

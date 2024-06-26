@@ -1,4 +1,5 @@
 @use "vars" as *;
+@import url('../assets/trumpets.svg');
 
 body {
     background-color: $color-background-body;
@@ -8,11 +9,20 @@ body {
     line-height: $font-line-height-body;
 }
 
-// $background-image: url('../../../assets/trumpets.svg');
+#root {
+    position: relative;
+    z-index: 1; /* Ensure content stays above the pseudo-element */
+}
 
-// #post-12 {
-//     background-image: $background-image;
-//     background-size: cover;
-//     background-position: center;
-//     background-repeat: no-repeat;
-// }
+#root::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../assets/trumpets.svg') no-repeat center center;
+    background-size: cover;
+    opacity: 0.1; /* Adjust the opacity value as needed */
+    z-index: -1; /* Ensure the pseudo-element is behind the content */
+}
