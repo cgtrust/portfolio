@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
 import logo from '../assets/lyre-logo.svg'
 import hamburgerIcon from '../assets/hamburger-menu.svg'
+import WaveAnimation from './WaveAnimation';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -38,6 +39,9 @@ const Header = () => {
                     </NavLink>
                 </div>
                 <nav className="main-nav">
+                    <div className="desktop-nav">
+                        <WaveAnimation />
+                    </div>
                     <div
                         className="hamburger"
                         onClick={toggleMenu}
