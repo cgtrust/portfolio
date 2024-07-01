@@ -49,6 +49,11 @@ header {
         padding: 0;
         width: 100%;
         border: 1px solid $color-border;
+        .home-note, 
+        .music-rest,
+        .about-note {
+            display: none;
+        }
         &.open {
             display: flex;  
             li {
@@ -84,17 +89,22 @@ header {
                 .about {
                     position: absolute;
                     animation: upDown 2s infinite alternate ease-in-out;
+                    .home-note, 
+                    .music-rest,
+                    .about-note {
+                        display: block;
+                    }
                 }
                 .home {
-                    bottom: calc(-0.5rem + 5%);
+                    bottom: calc(1rem + 5%);
                     left: 25%;
                 }
                 .projects {
-                    bottom: calc(-1rem + 10%);
+                    bottom: calc(2.25rem + 10%);
                     left: 50%;
                 }
                 .about {
-                    bottom: calc(-3rem + 15%);
+                    bottom: calc(4.5rem + 15%);
                     left: 75%;
                 }
                 @keyframes upDown {
