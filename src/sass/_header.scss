@@ -1,6 +1,13 @@
 @use 'vars' as *;
 @use 'mixins' as *;
 
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
 .header-wrapper {
     display: flex;
     justify-content: space-between;
@@ -8,6 +15,10 @@
     margin: 0 auto;
     @include mediaQuery(50em) {
         display: block;
+        max-width: 100%;
+        .logo {
+            margin: 2rem 0 0 2rem;
+        }
     }
     img {
         width: 3rem;
@@ -49,16 +60,73 @@
             }      
         }
     }
-    // #svg {
-    //     width: 100%;
-    //     height: 25vh;
-    // }
+
     @include mediaQuery(50em) {
         .hamburger {
             display: none;
         }
-        .desktop-nav {
-            display: block;
+        .main-nav {
+            position: relative;
+            .desktop-nav {
+                display: block;
+                position: absolute;
+                top: 1;
+                width: 100%;
+            }
+            .nav-links {
+                transition: opacity 0.5s ease-in;
+                display: flex;
+                flex-direction: row;
+                background-color: transparent;
+                border: none;
+                .home, 
+                .projects,
+                .about {
+                    position: absolute;
+                    animation: upDown 2s infinite alternate ease-in-out;
+                }
+                .home {
+                    bottom: calc(-0.5rem + 5%);
+                    left: 25%;
+                }
+                .projects {
+                    bottom: calc(-1rem + 10%);
+                    left: 50%;
+                }
+                .about {
+                    bottom: calc(-3rem + 15%);
+                    left: 75%;
+                }
+                @keyframes upDown {
+                    0% {
+                        transform: translateY(0);
+                    }
+                    100% {
+                        transform: translateY(5%);
+                    }
+                }
+            }
+            .image-container {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                img {
+                    width: 4rem;
+                }
+                a {
+                    position: absolute;
+                    bottom: 25px;
+                }
+                .music-rest {
+                    width: 6rem;
+                }
+                &.home-link,
+                &.rest-link,
+                &.about-link {
+                    text-align: center;
+                }
+            }
         }
     }
 }

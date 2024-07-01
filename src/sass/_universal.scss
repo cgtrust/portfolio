@@ -4,6 +4,9 @@
 main {
     max-width: 90%;
     margin: 0 auto;
+    @include mediaQuery(50em) {
+        max-width: 100%;
+    }
     h1, h2 {
         text-align: center;
     }
@@ -116,6 +119,9 @@ main {
 #post-42,
 #post-12 {
     margin-top: 20rem;
+    @include mediaQuery(50em) {
+        margin-top: 30rem;
+    }
 }
 
 .stack-flex .tech-stack #GitHub span svg path {
