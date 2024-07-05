@@ -41,20 +41,17 @@ const Header = () => {
                         <ul className={isOpen ? 'nav-links open' : 'nav-links'} ref={menuRef} onKeyDown={handleKeyDown}>
                             <li className="home">
                                 <div className="image-container">
-                                    <img className="home-note" src={note} alt="Music note" />
-                                    <NavLink className="home-link" to='/' end onClick={closeMenu} >Home</NavLink>
+                                    <NavLink className="home-link" to='/' end onClick={closeMenu} ><img className="home-note" src={note} alt="Music note" /><p>Home</p></NavLink>
                                 </div>
                             </li>
                             <li className="projects">
                                 <div className="image-container">
-                                    <img className="music-rest" src={rest} alt="Music half note rest" />
-                                    <NavLink className="rest-link" to='/projects' end onClick={closeMenu} >Projects</NavLink>
+                                    <NavLink className="rest-link" to='/projects' end onClick={closeMenu} ><img className="music-rest" src={rest} alt="Music half note rest" /><p>Projects</p></NavLink>
                                 </div>
                             </li>
                             <li className="about">
                                 <div className="image-container">
-                                    <img className="about-note" src={note} alt="Music note" />
-                                    <NavLink className="about-link" to='/about' end onClick={closeMenu} >About</NavLink>
+                                    <NavLink className="about-link" to='/about' end onClick={closeMenu} ><img className="about-note" src={note} alt="Music note" /><p>About</p></NavLink>
                                 </div>
                             </li>
                         </ul>

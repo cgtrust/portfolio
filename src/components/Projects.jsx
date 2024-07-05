@@ -34,7 +34,7 @@ const Projects = () => {
                 {restData.map(post => (
                     <section key={post.id} id={`post-${post.id}`} 
                              className="projects-section" 
-                             data-aos="slide-up" 
+                             data-aos="flip-up" 
                              data-aos-delay={(post * 100).toString()} 
                     >
                         <div className="projects-heading">

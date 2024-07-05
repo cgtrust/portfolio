@@ -31,7 +31,9 @@ const About = () => {
         <>
         { isLoaded ? 
             <article id={`post-${restData.id}`} className="top">
-                <section>  
+                <section data-aos="flip-up" 
+                         data-aos-delay={(restData * 100).toString()} 
+                >  
                     <div className="about-heading">
                         <div className="about-logo">
                             <img 
@@ -73,7 +75,9 @@ const About = () => {
                         ))
                     )}
                 </section>
-                <section className="stacks">
+                <section className="stacks" 
+                         data-aos="flip-up" 
+                         data-aos-delay={(restData * 100).toString()}>
                 {restData.acf.tech_stack && Array.isArray(restData.acf.tech_stack) && restData.acf.tech_stack[0] && (
                         <div>
                             <h2>Tech Stack</h2>
@@ -83,7 +87,10 @@ const About = () => {
                         </div>
                     )}
                 </section>
-                <section className="stacks">
+                <section className="stacks"
+                         data-aos="flip-up" 
+                         data-aos-delay={(restData * 100).toString()}
+                >
                 {restData.acf.design_stack && Array.isArray(restData.acf.design_stack) && restData.acf.design_stack[0] && (
                         <div>
                             <h2>Design Stack</h2>

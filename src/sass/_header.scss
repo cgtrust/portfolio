@@ -84,11 +84,18 @@ header {
                 flex-direction: row;
                 background-color: transparent;
                 border: none;
+                position: relative;
                 .home, 
                 .projects,
                 .about {
                     position: absolute;
                     animation: upDown 2s infinite alternate ease-in-out;
+                    p {
+                        position: absolute;
+                        bottom: 0;
+                        right: 30%;
+                        padding-bottom: .5rem;
+                    }
                     .home-note, 
                     .music-rest,
                     .about-note {
@@ -96,15 +103,15 @@ header {
                     }
                 }
                 .home {
-                    bottom: calc(1rem + 5%);
+                    bottom: .25rem;
                     left: 25%;
                 }
                 .projects {
-                    bottom: calc(2.25rem + 10%);
+                    bottom: -1.75rem;
                     left: 50%;
                 }
                 .about {
-                    bottom: calc(4.5rem + 15%);
+                    bottom: -2rem;
                     left: 75%;
                 }
                 @keyframes upDown {
@@ -117,7 +124,6 @@ header {
                 }
             }
             .image-container {
-                position: relative;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -125,11 +131,10 @@ header {
                     width: 4rem;
                 }
                 a {
-                    position: absolute;
                     bottom: 25px;
                 }
                 .music-rest {
-                    width: 6rem;
+                    width: 7rem;
                 }
                 &.home-link,
                 &.rest-link,

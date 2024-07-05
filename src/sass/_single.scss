@@ -62,3 +62,10 @@
     max-width: 40rem;
     margin: 2rem auto;
 }
+
+.button-container .mobile-hidden {
+    display: none;
+    @include mediaQuery(50em) {
+        display: block;
+    }
+}
