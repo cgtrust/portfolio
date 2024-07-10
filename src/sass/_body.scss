@@ -9,18 +9,22 @@ body {
     line-height: $font-line-height-body;
 }
 
-#root {
-    position: relative;
-    z-index: 1; /* Ensure content stays above the pseudo-element */
+.home-page {
+    height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full viewport width */
 }
 
+canvas, 
 #root::before {
-    content: "";
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+}
+
+#root::before {
+    content: "";
     background: url('../assets/trumpets.svg') no-repeat center center;
     background-size: cover;
     opacity: 0.1; /* Adjust the opacity value as needed */

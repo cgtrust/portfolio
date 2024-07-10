@@ -4,12 +4,15 @@ import Home from './components/Home'
 import Projects from './components/Projects'
 import About from './components/About'
 import Single from './components/Single'
+import MusicNotesCanvas from './components/MusicNotesCanvas'
+import Footer from './components/Footer'
 import './sass/styles.scss'
 
 function App() {
 
   return (
     <>
+      <MusicNotesCanvas />
       <Header />
       <main>
         <Routes>
@@ -19,6 +22,7 @@ function App() {
           <Route path='/about' element={<About />} />
         </Routes>
       </main>
+      <Footer />
     </>
   )
 }
