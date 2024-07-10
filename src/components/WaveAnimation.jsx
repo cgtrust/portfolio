@@ -30,6 +30,8 @@ const WaveAnimation = () => {
       );
     };
 
+    // Imported custom SVG and changed numbers in the to path
+    // to simulate constant movement
     const pathData = [
       {
         element: s.select('#path1'),

@@ -7,10 +7,13 @@ import TechStack from '../utilities/TechStack'
 
 const Single = () => {
     const {slug} = useParams()
+    // Grab the data from WP API for post type data
+    // Acf format standard is for the videos
     const restPath = restBase + `/posts?slug=${slug}&_embed&acf_format=standard`
     const [restData, setData] = useState([])
     const [isLoaded, setLoadStatus] = useState(false)
 
+    // Fetch API and allow loading screen until content is loaded
     useEffect(() => {
         const fetchData = async () => {
             const response = await fetch(restPath)
@@ -46,7 +49,6 @@ const Single = () => {
                         )}
                         {restData.acf.tech_stack && Array.isArray(restData.acf.tech_stack) && restData.acf.tech_stack[0] && (
                             <div className="stack-flex">
-                                {/* <h2>Tech Stack:</h2> */}
                                 <TechStack technologies={restData.acf.tech_stack[0].tech_stack} />
                             </div>
                         )}

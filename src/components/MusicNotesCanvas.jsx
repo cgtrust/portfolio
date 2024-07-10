@@ -1,3 +1,5 @@
+// The following code is adapted into React from
+// https://codepen.io/Kuutti-Siitonen/pen/KKJeOoQ
 import React, { useEffect, useRef } from 'react';
 
 const MusicNotesCanvas = () => {

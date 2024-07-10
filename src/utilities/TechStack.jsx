@@ -3,6 +3,7 @@ import StackIcon from "tech-stack-icons";
 
 const TechStack = ({ technologies }) => {
     return (
+        // Grabs the API from WordPress ACF value and label array
         <div className="tech-stack">
             {technologies.map((tech, index) => (
                 <div id={tech.label} key={index}>
