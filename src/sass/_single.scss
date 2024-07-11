@@ -67,9 +67,13 @@
     }
 }
 
-.button-container .mobile-hidden {
+#post-48 .button-container .mobile-hidden,
+#post-44 .button-container .private-repo,
+#post-42 .button-container .mobile-hidden {
     display: none;
     @include mediaQuery(50em) {
-        display: block;
+        #post-48 .button-container .mobile-hidden {
+            display: block;
+        }
     }
 }

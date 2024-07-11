@@ -13,7 +13,7 @@ const TabsComponent = ({ requirements, reflection }) => {
                 <RequirementComponent htmlContent={requirements} />
             </TabPanel>
             <TabPanel>
-                <p>{reflection}</p>
+                {reflection}
             </TabPanel>
         </Tabs>
     )
