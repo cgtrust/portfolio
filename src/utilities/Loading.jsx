@@ -25,7 +25,6 @@ const Loading = () => {
             alignItems: 'center',
             height: '100vh',
             backgroundColor: '#191c19',
-            zIndex: '9999'
         }}>
             <img 
                 src={loading} 

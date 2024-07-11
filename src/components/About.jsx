@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Loading from '../utilities/Loading'
 import { restBase } from '../utilities/Utilities';
 import TechStack from '../utilities/TechStack';
+import { Helmet } from 'react-helmet-async';
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -9,6 +10,9 @@ const About = () => {
     const restPath = restBase + '/pages/36?acf_format=standard&_embed'
     const [restData, setData] = useState([])
     const [isLoaded, setLoadStatus] = useState(false)
+    // Ensure restData and restData.acf are defined before accessing their properties
+    const metaDescription = restData && restData.acf && restData.acf.cgt_portfolio_meta_description;
+    const metaTitle = restData && restData.acf && restData.acf.cgt_portfolio_meta_title;
 
     useEffect(() => {
         AOS.init();
@@ -28,6 +32,10 @@ const About = () => {
 
     return (
         <>
+        <Helmet>
+            <meta name="description" content={metaDescription} />
+            <title>{metaTitle}</title>
+        </Helmet>
         { isLoaded ? 
             <article id={`post-${restData.id}`} className="top">
                 <section data-aos="flip-up" 

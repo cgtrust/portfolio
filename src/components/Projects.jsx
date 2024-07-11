@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Loading from '../utilities/Loading'
 import { restBase } from '../utilities/Utilities';
 import TechStack from '../utilities/TechStack';
+import { Helmet } from 'react-helmet-async';
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -27,11 +28,21 @@ const Projects = () => {
         fetchData()
     }, [restPath])
 
+    // Ensure restData and restData.acf are defined before accessing their properties
+    // const metaDescription = restData && restData.acf && restData.acf.cgt_portfolio_meta_description;
+    // const metaTitle = restData && restData.acf && restData.acf.cgt_portfolio_meta_title;
+    // console.log(metaDescription)
+
     return (
         <>
         { isLoaded ?
             <>
                 {restData.map(post => (
+                    <>
+                    <Helmet>
+                        <meta name="description" content={post && post.acf && post.acf.cgt_portfolio_meta_description} />
+                        <title>{post && post.acf && post.acf.cgt_portfolio_meta_title}</title>
+                    </Helmet>
                     <section key={post.id} id={`post-${post.id}`} 
                              className="projects-section" 
                              data-aos="flip-up" 
@@ -59,6 +70,7 @@ const Projects = () => {
                             <Link to={`/projects/${post.slug}`} >More Info</Link>
                         </div>        
                     </section>
+                    </>
                 ))}
             </>
         : 

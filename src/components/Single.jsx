@@ -4,6 +4,7 @@ import Loading from '../utilities/Loading'
 import { restBase } from '../utilities/Utilities'
 import TabsComponent from '../utilities/Tabs'
 import TechStack from '../utilities/TechStack'
+import { Helmet } from 'react-helmet-async';
 
 const Single = () => {
     const {slug} = useParams()
@@ -12,6 +13,9 @@ const Single = () => {
     const restPath = restBase + `/posts?slug=${slug}&_embed&acf_format=standard`
     const [restData, setData] = useState([])
     const [isLoaded, setLoadStatus] = useState(false)
+    // Ensure restData and restData.acf are defined before accessing their properties
+    const metaDescription = restData && restData.acf && restData.acf.cgt_portfolio_meta_description;
+    const metaTitle = restData && restData.acf && restData.acf.cgt_portfolio_meta_title;
 
     // Fetch API and allow loading screen until content is loaded
     useEffect(() => {
@@ -30,6 +34,10 @@ const Single = () => {
 
     return (
         <>
+        <Helmet>
+            <meta name="description" content={metaDescription} />
+            <title>{metaTitle}</title>
+        </Helmet>
         { isLoaded ?
             <>
                 <article id={`post-${restData.id}`} className="top">

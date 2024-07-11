@@ -1,5 +1,9 @@
 footer {
-    p {
-        text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    svg {
+        margin-top: .35rem;
     }
 }
