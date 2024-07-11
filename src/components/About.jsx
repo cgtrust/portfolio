@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import Loading from '../utilities/Loading'
 import { restBase } from '../utilities/Utilities';
 import TechStack from '../utilities/TechStack';
-import pastelRainbowImage from '../assets/pastel-rainbow.png';
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -37,8 +36,8 @@ const About = () => {
                     <div className="about-heading">
                         <div className="about-logo">
                             <img 
-                                src={pastelRainbowImage} 
-                                alt="Pastel rainbow background" 
+                                src={restData.acf.background_image.url} 
+                                alt={restData.acf.background_image.alt} 
                                 className="about-logo-background"
                             />
                             <img 

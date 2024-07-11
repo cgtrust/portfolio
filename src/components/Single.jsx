@@ -41,7 +41,7 @@ const Single = () => {
                     )}
                     <div className="single-links button-container">                        
                         <Link to={restData.acf.cgt_portfolio_git_repo_link} >Git Repo</Link>
-                        <Link className="mobile-hidden"to={restData.acf.cgt_portfolio_live_site_link} >Live Site</Link>
+                        <Link className="mobile-hidden" to={restData.acf.cgt_portfolio_live_site_link} >Live Site</Link>
                     </div>
                     <div className="project-overview">
                         {restData.acf.cgt_portfolio_project_overview && (
