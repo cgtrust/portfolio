@@ -32,6 +32,7 @@ const Loading = () => {
                 className="loading" 
                 id="loading"
                 style={{
+                    maxWidth: '50%',
                     display: 'block',
                     margin: 'auto'
                 }}

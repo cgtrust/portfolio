@@ -44,7 +44,7 @@ const Single = () => {
                     <h1>{restData.title.rendered}</h1>
                     {restData.acf.cgt_portfolio_featured_project && typeof restData.acf.cgt_portfolio_featured_project === 'string' && (
                         <div className="video-container">
-                            <video autoPlay loop muted src={restData.acf.cgt_portfolio_featured_project} type="video/mp4"></video>
+                            <video autoPlay playsInline loop muted src={restData.acf.cgt_portfolio_featured_project} type="video/mp4"></video>
                         </div>
                     )}
                     <div className="single-links button-container">                        
